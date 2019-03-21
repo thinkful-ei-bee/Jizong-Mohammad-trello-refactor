@@ -10,11 +10,14 @@ export default function List(props) {
         <h2>{props.header}</h2>
       </header>
       <div className='List-cards'>
-        {props.cards.map((card) =>
+        {props.cards.map((card, index) =>
           <Card
-            key={card.id}
+            key={index}
             title={card.title}
             content={card.content}
+            onDeleteHandle={props.onDeleteItem}
+            cardId={index}
+            listId={props.listProp.id}
           />
         )}
         <button

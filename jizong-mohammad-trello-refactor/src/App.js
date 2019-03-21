@@ -45,13 +45,22 @@ class App extends Component {
     }
     
   }
+ 
+
+  // omit= (obj, keyToOmit) =>{
+  //   return Object.entries(obj).reduce(
+  //     (newObj, [key, value]) =>
+  //         key === keyToOmit ? newObj : {...newObj, [key]: value},
+  //     {}
+  //   );
+  // }
+
+  handleDeleteItem=(listId, cardId) => { 
+    console.log('handle delete item called', {listId},{cardId})
     
-  // static defaultProps = {
-  //   store: {
-  //     lists: [],
-  //     allCards: {},
-  //   }
-  // };
+    
+  }
+  
 
   render() {
     //const { store } = this.props
@@ -66,7 +75,7 @@ class App extends Component {
               key={list.id}
               header={list.header}
               cards={list.cardIds.map(id => this.state.STORE.allCards[id])}
-
+              onDeleteItem={this.handleDeleteItem}
               listProp = {list}
             />
           )}
