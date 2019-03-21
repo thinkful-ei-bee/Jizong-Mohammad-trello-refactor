@@ -2,10 +2,11 @@ import React from 'react';
 import './Card.css';
 
 export default function Card(props) {
+  //console.log('test key',props)
   return (
     <div className='Card'>
       <button
-        type='button'
+        type='button' onClick={()=>props.deleteHandle(props.listId,props.cardId)}
       >
         delete
       </button>
