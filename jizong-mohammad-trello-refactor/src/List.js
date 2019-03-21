@@ -18,9 +18,17 @@ export default function List(props) {
             onDeleteHandle={props.onDeleteItem}
             cardId={index}
             listId={props.listProp.id}
+        {props.cards.map((card,index) =>
+          <Card
+            key={index}
+            listId = {props.listId}
+            cardId={index}
+            title={card.title}
+            content={card.content}
+            deleteHandle = {props.delete}
           />
         )}
-        <button
+        <button onClick ={()=>props.add(props.listId)}
           type='button'
           className='List-add-button'
         >
