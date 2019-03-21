@@ -56,13 +56,13 @@ class App extends Component {
       //console.log('`deleteCardHandle` ran','/nlist id:',listId,'card id/n',cardId)
       //console.log(this.state.lists[listId-1])
       const newLists = this.state.lists
-      console.log(this.state.lists[listId-1].cardIds)
+      //console.log(this.state.lists[listId-1].cardIds)
       const deleteItem = this.state.lists[listId-1].cardIds[cardId]
-      console.log(deleteItem)
+      //console.log(deleteItem)
       const newCardsIdArr = this.state.lists[listId-1].cardIds.filter(id=>id!==deleteItem)
-      console.log(newCardsIdArr)
+      //console.log(newCardsIdArr)
       newLists[listId-1].cardIds = newCardsIdArr
-      console.log(newLists)
+      //console.log(newLists)
       this.setState({
         lists:newLists
       }
@@ -74,8 +74,28 @@ class App extends Component {
      
   }
 
+  
+
+
+
   addRandomCardHandle=(listId)=>{
-    console.log('`addRandomCardHandle` ran')
+    //console.log('`addRandomCardHandle` ran')
+    const newLists = this.state.lists
+    const cardKeys = Object.keys(this.state.allCards)
+    //console.log(cardKeys)
+    const size = cardKeys.length
+    console.log(newLists[listId-1].cardIds)
+    //console.log(size)
+    const randomIndex = Math.floor(Math.random(size)*size)
+    const randomItem = cardKeys[randomIndex]
+
+    //console.log(randomIndex)
+    newLists[listId-1].cardIds.push(randomItem)
+    console.log(newLists[listId-1].cardIds)
+    this.setState({
+      lists:newLists
+    })
+
   }
 
   render() {

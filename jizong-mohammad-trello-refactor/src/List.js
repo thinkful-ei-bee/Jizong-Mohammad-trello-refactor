@@ -18,6 +18,7 @@ export default function List(props) {
             title={card.title}
             content={card.content}
             deleteHandle = {props.delete}
+            
           />
         )}
         <button onClick ={()=>props.add(props.listId)}
