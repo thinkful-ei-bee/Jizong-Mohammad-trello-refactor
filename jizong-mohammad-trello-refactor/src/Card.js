@@ -9,11 +9,6 @@ export default function Card(props) {
         //id= {props.id}
         type='button'
         onClick={() => props.onDeleteHandle(props.listId, props.cardId)}
-  //console.log('test key',props)
-  return (
-    <div className='Card'>
-      <button
-        type='button' onClick={()=>props.deleteHandle(props.listId,props.cardId)}
       >
         delete
       </button>

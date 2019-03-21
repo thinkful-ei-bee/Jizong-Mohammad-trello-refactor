@@ -4,7 +4,7 @@ import './App.css';
 
 class App extends Component {
   state ={
-    
+    STORE:{
       lists: [
         {
           id: '1',
@@ -41,10 +41,11 @@ class App extends Component {
         'k': { title: 'Eleventh card', content: 'lorem ipsum' },
         'l': { title: 'Twelth card', content: 'lorem ipsum' },
         'm': { title: 'Thirteenth card', content: 'lorem ipsum' },
-      }
+      },
+    }
     
-    
-  } 
+  }
+ 
 
   // omit= (obj, keyToOmit) =>{
   //   return Object.entries(obj).reduce(
@@ -60,37 +61,6 @@ class App extends Component {
     
   }
   
-  // static defaultProps = {
-  //   store: {
-  //     lists: [],
-  //     allCards: {},
-  //   }
-  // };
-  deleteCardHandle=(listId,cardId)=>{
-      //console.log('`deleteCardHandle` ran','/nlist id:',listId,'card id/n',cardId)
-      //console.log(this.state.lists[listId-1])
-      const newLists = this.state.lists
-      console.log(this.state.lists[listId-1].cardIds)
-      const deleteItem = this.state.lists[listId-1].cardIds[cardId]
-      console.log(deleteItem)
-      const newCardsIdArr = this.state.lists[listId-1].cardIds.filter(id=>id!==deleteItem)
-      console.log(newCardsIdArr)
-      newLists[listId-1].cardIds = newCardsIdArr
-      console.log(newLists)
-      this.setState({
-        lists:newLists
-      }
-       
-     )
-      //console.log(deleteItem)
-      // const newCardId = this.state.lists[listId]
-      // console.log(newCardId)
-     
-  }
-
-  addRandomCardHandle=(listId)=>{
-    console.log('`addRandomCardHandle` ran')
-  }
 
   render() {
     //const { store } = this.props
@@ -100,16 +70,12 @@ class App extends Component {
           <h1>Trelloyes!</h1>
         </header>
         <div className='App-list'>
-          {this.state.lists.map(list => 
+          {this.state.STORE.lists.map(list => 
             <List
-              listId = {list.id}
               key={list.id}
               header={list.header}
               cards={list.cardIds.map(id => this.state.STORE.allCards[id])}
               onDeleteItem={this.handleDeleteItem}
-              cards={list.cardIds.map(id => this.state.allCards[id])}
-              delete = {this.deleteCardHandle}
-              add = {this.addRandomCardHandle}
               listProp = {list}
             />
           )}
