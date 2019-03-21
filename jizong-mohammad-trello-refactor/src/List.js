@@ -7,10 +7,10 @@ export default function List(props) {
   return (
     <section className='List'>
       <header className='List-header'>
-        <h2>{props.list.header}</h2>
+        <h2>{props.header}</h2>
       </header>
       <div className='List-cards'>
-        {props.list.allcards.map((card) =>
+        {props.cards.map((card) =>
           <Card
             key={card.id}
             title={card.title}
