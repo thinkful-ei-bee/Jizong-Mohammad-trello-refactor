@@ -68,9 +68,7 @@ class App extends Component {
       }
        
      )
-      //console.log(deleteItem)
-      // const newCardId = this.state.lists[listId]
-      // console.log(newCardId)
+ 
      
   }
 
