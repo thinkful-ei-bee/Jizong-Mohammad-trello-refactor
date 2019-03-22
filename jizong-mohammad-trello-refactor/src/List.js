@@ -3,7 +3,7 @@ import Card from './Card'
 import './List.css';
 
 export default function List(props) {
-  console.log("inside list component", props)
+  //console.log("inside list component", props)
   return (
     <section className='List'>
       <header className='List-header'>

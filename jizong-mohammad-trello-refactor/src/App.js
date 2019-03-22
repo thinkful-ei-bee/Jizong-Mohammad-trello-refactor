@@ -56,13 +56,13 @@ class App extends Component {
       //console.log('`deleteCardHandle` ran','/nlist id:',listId,'card id/n',cardId)
       //console.log(this.state.lists[listId-1])
       const newLists = this.state.lists
-      //console.log(this.state.lists[listId-1].cardIds)
+      console.log('card ids in the selected list',this.state.lists[listId-1].cardIds)
       const deleteItem = this.state.lists[listId-1].cardIds[cardId]
-      //console.log(deleteItem)
+      console.log('delete item',deleteItem)
       const newCardsIdArr = this.state.lists[listId-1].cardIds.filter(id=>id!==deleteItem)
-      //console.log(newCardsIdArr)
+      console.log('new card ids array',newCardsIdArr)
       newLists[listId-1].cardIds = newCardsIdArr
-      //console.log(newLists)
+      console.log('new list',newLists)
       this.setState({
         lists:newLists
       }
