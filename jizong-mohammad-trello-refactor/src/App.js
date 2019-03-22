@@ -75,26 +75,40 @@ class App extends Component {
   }
 
   
-
+   newRandomCard = () => {
+    const id = Math.random().toString(36).substring(2, 4)
+      + Math.random().toString(36).substring(2, 4);
+    return {
+      id,
+      title: `Random Card ${id}`,
+      content: 'lorem ipsum',
+    }
+  }
 
 
   addRandomCardHandle=(listId)=>{
     //console.log('`addRandomCardHandle` ran')
+    const randomItem = this.newRandomCard()
+    console.log(randomItem,randomItem.id)
+
     const newLists = this.state.lists
-    const cardKeys = Object.keys(this.state.allCards)
-    //console.log(cardKeys)
-    const size = cardKeys.length
-    console.log(newLists[listId-1].cardIds)
-    //console.log(size)
-    const randomIndex = Math.floor(Math.random(size)*size)
-    const randomItem = cardKeys[randomIndex]
+    
+    newLists[listId-1].cardIds.push(randomItem.id)
+    
+    const newAllCards = this.state.allCards
+    newAllCards[randomItem.id]=randomItem
+    this.setState(
+      {
+        lists:newLists,
+        allCards:newAllCards
+      }
+    )
+    
+    
+    
 
     //console.log(randomIndex)
-    newLists[listId-1].cardIds.push(randomItem)
-    console.log(newLists[listId-1].cardIds)
-    this.setState({
-      lists:newLists
-    })
+    
 
   }
 
